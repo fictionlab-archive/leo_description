@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find leo_description)/urdf/include/zed2.urdf.xacro"/>
+
+  <joint name="erc_setup_joint" type="fixed">
+    <origin xyz="0.048 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="erc_setup_link"/>
+  </joint>
+
+  <link name="erc_setup_link">
+    <inertial>
+      <mass value="1.10026"/>
+      <origin xyz="-0.068748 0.019099 0.07874"/>
+      <inertia
+        ixx="0.006365" ixy="-0.0002913" ixz="-0.001492"
+        iyy="0.009844" iyz="-0.0008438"
+        izz="0.006101"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://leo_description/models/ERC2020setup.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://leo_description/models/ERC2020setup_outline.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="zed2_tilt_head_joint" type="fixed">
+    <origin xyz="0 0 0.1291" rpy="0 0.4 0"/>
+    <parent link="erc_setup_link"/>
+    <child link="zed2_tilt_head_link"/>
+  </joint>
+
+  <link name="zed2_tilt_head_link">
+    <inertial>
+      <mass value="0.108614"/>
+      <origin xyz="0 -0.008564 0.015313"/>
+      <inertia
+        ixx="7.371e-5" ixy="0.0" ixz="1.326071e-6"
+        iyy="3.14e-5" iyz="-1.424e-5"
+        izz="6.13e-5"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://leo_description/models/Manfrotto_head.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://leo_description/models/Manfrotto_head.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>

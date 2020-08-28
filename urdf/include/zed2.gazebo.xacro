@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Left/Depth camera -->
+  <gazebo reference="zed2_left_camera_frame">
+    <sensor type="depth" name="zed2_left">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <visualize>false</visualize> 
+      <camera name="zed2_left">
+        <horizontal_fov>1.8</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+        <distortion>
+          <k1>-0.279817</k1>
+          <k2>0.060321</k2>
+          <k3>0.000487</k3>
+          <p1>0.000310</p1>
+          <p2>0.000000</p2>
+          <center>0.5 0.5</center>
+        </distortion>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_depth_camera.so">
+        <robotNamespace>$(arg robot_ns)</robotNamespace>
+        <cameraName>zed2/left_raw</cameraName>
+        <imageTopicName>image_raw_color</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/depth_registered</depthImageTopicName>
+        <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>point_cloud/cloud_registered</pointCloudTopicName>
+        <frameName>zed2_left_camera_optical_frame</frameName>
+        <distortionK1>-0.279817</distortionK1>
+        <distortionK2>0.060321</distortionK2>
+        <distortionK3>0.000487</distortionK3>
+        <distortionT1>0.000310</distortionT1>
+        <distortionT2>0.000000</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Right camera -->
+  <gazebo reference="zed2_right_camera_frame">
+    <sensor type="camera" name="zed2_right">
+      <always_on>true</always_on>
+      <update_rate>30.0</update_rate>
+      <visualize>false</visualize> 
+      <camera name="zed2_right">
+        <horizontal_fov>1.8</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+        <distortion>
+          <k1>-0.279817</k1>
+          <k2>0.060321</k2>
+          <k3>0.000487</k3>
+          <p1>0.000310</p1>
+          <p2>0.000000</p2>
+          <center>0.5 0.5</center>
+        </distortion>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <robotNamespace>$(arg robot_ns)</robotNamespace>
+        <cameraName>zed2/right_raw</cameraName>
+        <imageTopicName>image_raw_color</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>zed2_right_camera_optical_frame</frameName>
+        <distortionK1>-0.279817</distortionK1>
+        <distortionK2>0.060321</distortionK2>
+        <distortionK3>0.000487</distortionK3>
+        <distortionT1>0.000310</distortionT1>
+        <distortionT2>0.000000</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- IMU -->
+  <gazebo reference="imu_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+</robot>

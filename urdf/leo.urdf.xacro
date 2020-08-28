@@ -7,7 +7,8 @@
   <xacro:arg name="fixed" default="false"/>
   <xacro:arg name="rockers_fixed" default="true"/>
 
-  <xacro:include filename="$(find leo_description)/urdf/leo.gazebo.xacro"/>
+  <xacro:include filename="$(find leo_description)/urdf/include/leo.gazebo.xacro"/>
+  <xacro:include filename="$(find leo_description)/urdf/include/erc_setup.urdf.xacro"/>
 
   <xacro:if value="$(arg fixed)">
     <link name="world"/>
