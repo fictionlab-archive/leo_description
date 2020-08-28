@@ -9,7 +9,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_left_raw">
-        <horizontal_fov>1.8</horizontal_fov>
+        <horizontal_fov>1.76</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -54,7 +54,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_left">
-        <horizontal_fov>1.8</horizontal_fov>
+        <horizontal_fov>1.76</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -93,7 +93,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_right_raw">
-        <horizontal_fov>1.8</horizontal_fov>
+        <horizontal_fov>1.76</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -137,7 +137,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_right">
-        <horizontal_fov>1.8</horizontal_fov>
+        <horizontal_fov>1.76</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
