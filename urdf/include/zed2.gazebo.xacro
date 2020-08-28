@@ -4,7 +4,7 @@
   <!-- Left/Depth camera -->
   <gazebo reference="zed2_left_camera_frame">
     <!-- Raw images (with lens distortion) -->
-    <sensor type="camera" name="zed2_left_raw">
+    <sensor type="camera" name="zed2_left_raw_camera">
       <always_on>true</always_on>
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
@@ -48,7 +48,7 @@
       </plugin>
     </sensor>
 
-    <sensor type="depth" name="zed2_left">
+    <sensor type="depth" name="zed2_left_camera">
       <!-- Rectified images, Depth images, Point Clouds -->
       <always_on>true</always_on>
       <update_rate>15.0</update_rate>
@@ -88,7 +88,7 @@
   <!-- Right camera -->
   <gazebo reference="zed2_right_camera_frame">
     <!-- Raw images (with lens distortion) -->
-    <sensor type="camera" name="zed2_right_raw">
+    <sensor type="camera" name="zed2_right_raw_camera">
       <always_on>true</always_on>
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
@@ -131,7 +131,7 @@
       </plugin>
     </sensor>
 
-    <sensor type="camera" name="zed2_right">
+    <sensor type="camera" name="zed2_right_camera">
       <!-- Rectified images -->
       <always_on>true</always_on>
       <update_rate>15.0</update_rate>
@@ -164,25 +164,22 @@
   </gazebo>
 
   <!-- IMU -->
-  <!-- <gazebo reference="imu_link">
-    <gravity>true</gravity>
-    <sensor name="imu_sensor" type="imu">
-      <always_on>true</always_on>
+  <gazebo reference="zed2_left_camera_frame">
+    <sensor type="imu" name="zed2_imu_sensor">
       <update_rate>100</update_rate>
-      <visualize>true</visualize>
-      <topic>__default_topic__</topic>
       <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>imu</topicName>
+        <robotNamespace>$(arg robot_ns)</robotNamespace>
+        <topicName>zed2/imu/data</topicName>
+        <frameName>zed2_imu_link</frameName>
         <bodyName>imu_link</bodyName>
-        <updateRateHZ>10.0</updateRateHZ>
+        <updateRateHZ>100.0</updateRateHZ>
         <gaussianNoise>0.0</gaussianNoise>
-        <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 0</rpyOffset>
-        <frameName>imu_link</frameName>
         <initialOrientationAsReference>false</initialOrientationAsReference>
+        <!-- IMU frame offset copied from an actual ZED2 camera -->
+        <xyzOffset>-0.002 -0.023 -0.002</xyzOffset>
+        <rpyOffset>0.0014025 -0.0000012 -0.0016915</rpyOffset>
       </plugin>
-      <pose>0 0 0 0 0 0</pose>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 </robot>
