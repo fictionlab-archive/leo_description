@@ -140,7 +140,7 @@
         <CxPrime>659.3049926757812</CxPrime>
         <Cx>659.3049926757812</Cx>
         <Cy>371.39849853515625</Cy>
-        <hackBaseline>0.0</hackBaseline>
+        <hackBaseline>0.12</hackBaseline>
       </plugin>
     </sensor>
 
@@ -175,7 +175,7 @@
         <CxPrime>658.8206787109375</CxPrime>
         <Cx>658.8206787109375</Cx>
         <Cy>372.25787353515625</Cy>
-        <hackBaseline>0.0</hackBaseline>
+        <hackBaseline>0.12</hackBaseline>
       </plugin>
     </sensor>
   </gazebo>
