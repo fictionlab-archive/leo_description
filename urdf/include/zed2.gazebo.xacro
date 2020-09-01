@@ -9,7 +9,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_left_raw">
-        <horizontal_fov>1.76</horizontal_fov>
+        <horizontal_fov>1.7633</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -25,7 +25,7 @@
           <stddev>0.007</stddev>
         </noise>
         <distortion>
-          <!-- Value copied from an actual ZED2 camera -->
+          <!-- Values copied from an actual ZED2 camera -->
           <k1>-0.043693598</k1>
           <k2>0.0146164996</k2>
           <p1>-0.006573319</p1>
@@ -45,6 +45,10 @@
         <distortionT1>-0.006573319</distortionT1>
         <distortionT2>-0.000216900</distortionT2>
         <distortionK3>0.000084328</distortionK3>
+        <CxPrime>648.5</CxPrime>
+        <Cx>648.5</Cx>
+        <Cy>366.8340148925781</Cy>
+        <hackBaseline>0.0</hackBaseline>
       </plugin>
     </sensor>
 
@@ -54,7 +58,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_left">
-        <horizontal_fov>1.76</horizontal_fov>
+        <horizontal_fov>1.7633</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -81,6 +85,11 @@
         <pointCloudCutoff>0.3</pointCloudCutoff>
         <pointCloudCutoffMax>20.0</pointCloudCutoffMax>
         <frameName>zed2_left_camera_optical_frame</frameName>
+        <baseline>0.12</baseline>
+        <CxPrime>658.8206787109375</CxPrime>
+        <Cx>658.8206787109375</Cx>
+        <Cy>372.25787353515625</Cy>
+        <hackBaseline>0.0</hackBaseline>
       </plugin>
     </sensor>
   </gazebo>
@@ -93,7 +102,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_right_raw">
-        <horizontal_fov>1.76</horizontal_fov>
+        <horizontal_fov>1.7633</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -128,6 +137,10 @@
         <distortionT1>-0.004429849</distortionT1>
         <distortionT2>0.000192024</distortionT2>
         <distortionK3>-0.000320880</distortionK3>
+        <CxPrime>659.3049926757812</CxPrime>
+        <Cx>659.3049926757812</Cx>
+        <Cy>371.39849853515625</Cy>
+        <hackBaseline>0.0</hackBaseline>
       </plugin>
     </sensor>
 
@@ -137,7 +150,7 @@
       <update_rate>15.0</update_rate>
       <visualize>false</visualize> 
       <camera name="zed2_right">
-        <horizontal_fov>1.76</horizontal_fov>
+        <horizontal_fov>1.7633</horizontal_fov>
         <image>
           <width>1280</width>
           <height>720</height>
@@ -159,6 +172,10 @@
         <imageTopicName>image_rect_color</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>zed2_right_camera_optical_frame</frameName>
+        <CxPrime>658.8206787109375</CxPrime>
+        <Cx>658.8206787109375</Cx>
+        <Cy>372.25787353515625</Cy>
+        <hackBaseline>0.0</hackBaseline>
       </plugin>
     </sensor>
   </gazebo>
