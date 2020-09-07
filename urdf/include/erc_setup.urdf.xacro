@@ -31,7 +31,7 @@
   </link>
 
   <joint name="zed2_tilt_head_joint" type="fixed">
-    <origin xyz="0 0 0.1291" rpy="0 0.4 0"/>
+    <origin xyz="0 0 0.1291" rpy="0 0.415911961 0"/> <!-- 23.83 degree tilt -->
     <parent link="erc_setup_link"/>
     <child link="zed2_tilt_head_link"/>
   </joint>
